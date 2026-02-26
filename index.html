@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Offshore Insights</title>
+  <script src="https://unpkg.com/globe.gl"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #050b17;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
 
+    #sidebar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 300px;
+      height: 100vh;
+      background: rgba(5, 15, 30, 0.95);
+      padding: 20px;
+      box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+      z-index: 10;
+    }
+
+    #globeViz {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    h1 {
+      color: #00ff99;
+      font-size: 18px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      background: #0f1f35;
+      border: none;
+      color: white;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="sidebar">
+  <h1>OFFSHORE INSIGHTS</h1>
+  <input type="text" placeholder="Search vessel...">
+  <p>• Tug</p>
+  <p>• Cargo</p>
+  <p>• Passenger</p>
+</div>
+
+<div id="globeViz"></div>
+
+<script>
+  const world = Globe()
+    (document.getElementById('globeViz'))
+    .globeImageUrl('//unpkg.com/three-globe/example/img/earth-dark.jpg')
+    .backgroundColor('#050b17');
+
+  world.controls().autoRotate = true;
+  world.controls().autoRotateSpeed = 0.3;
+</script>
+
+</body>
+</html>
